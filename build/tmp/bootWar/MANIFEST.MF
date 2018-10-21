@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Start-Class: org.o7planning.sbangularjs.SpringBootAngularJs1Applicatio
- n
-Main-Class: org.springframework.boot.loader.WarLauncher
-
