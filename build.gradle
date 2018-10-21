@@ -1,0 +1,54 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.6.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'war'
+version = '0.0.1-SNAPSHOT'
+processResources.destinationDir = compileJava.destinationDir
+compileJava.dependsOn processResources
+
+
+
+war {
+    baseName = 'SpringBootAngularJS-1'
+    version =  version
+}
+
+
+group = 'org.o7planning'
+
+
+
+repositories {
+	mavenCentral()
+	mavenLocal()
+    maven { url "http://repo.spring.io/libs-snapshot" }
+    maven { url "http://repo.spring.io/milestone" }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+}
+
+
+dependencies {
+	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+	compile("org.springframework.boot:spring-boot-starter-web")
+	compile("mysql:mysql-connector-java:8.0.12")
+	compile("org.springframework.boot:spring-boot-starter-data-jpa:2.0.4.RELEASE")
+	compile("org.springframework.data:spring-data-rest-core:2.6.7.RELEASE")
+	compile("org.springframework.boot:spring-boot-devtools")
+	testCompile("org.springframework.boot:spring-boot-starter-test")
+
+	
+	
+}
